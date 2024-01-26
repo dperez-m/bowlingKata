@@ -24,6 +24,9 @@ public class Scorecard {
             frames[i] = new Frame(rolls.charAt(j),rolls.charAt(j + 1));
             j += 2;
         }
+    }
 
+    public int getTotalScore(){
+        return Arrays.stream(frames).mapToInt(Frame::getFrameScore).sum();
     }
 }

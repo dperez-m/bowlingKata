@@ -1,15 +1,13 @@
-import java.util.Objects;
-
 public class Frame {
 
     private char firstRoll;
     private char secondRoll;
-    private int totalScore;
+    private int frameScore;
 
     public Frame(char firstRoll, char secondRoll){
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
-        this.totalScore =0;
+        this.frameScore = 0;
     }
 
     public int getFirstRoll() {
@@ -18,6 +16,9 @@ public class Frame {
 
     public int getSecondRoll() {
         return secondRoll;
+    }
+    public int getFrameScore(){
+        return Character.getNumericValue(firstRoll) + Character.getNumericValue(secondRoll);
     }
 
     @Override
