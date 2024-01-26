@@ -5,12 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ScoreCardTest {
 
     Scorecard scorecard = null;
-    @Disabled
-    @BeforeEach
-    public void initTest(){
-        scorecard = new Scorecard("12345123451234512345");
-    }
-
 
     @Test
     public void createScoreCardTest(){
@@ -38,8 +32,14 @@ public class ScoreCardTest {
     }
 
     @Test
-    public void getSimpleTotalScoreTest(){
+    public void getSimpleGameTotalScoreTest(){
         scorecard = new Scorecard("12345123451234512345");
         assertEquals(60, scorecard.getTotalScore());
+    }
+
+    @Test
+    public void getHeartbreakGameTotalScoreTest(){
+        scorecard = new Scorecard("9-9-9-9-9-9-9-9-9-9-");
+        assertEquals(90, scorecard.getTotalScore());
     }
 }

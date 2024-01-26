@@ -11,16 +11,21 @@ public class Frame {
     }
 
     public int getFirstRoll() {
-        return firstRoll;
+        return getFirstRollScore();
     }
 
     public int getSecondRoll() {
-        return secondRoll;
+        return getSecondRollScore();
     }
     public int getFrameScore(){
-        return Character.getNumericValue(firstRoll) + Character.getNumericValue(secondRoll);
+        return getFirstRollScore() + getSecondRollScore();
     }
-
+    private int getFirstRollScore(){
+        return firstRoll == '-' ? 0 : Character.getNumericValue(firstRoll);
+    }
+    private int getSecondRollScore(){
+        return secondRoll == '-' ? 0 : Character.getNumericValue(secondRoll);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
