@@ -3,11 +3,19 @@ public class Frame {
     private char firstRoll;
     private char secondRoll;
     private int frameScore;
+    private char extraRoll;
 
     public Frame(char firstRoll, char secondRoll){
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
         this.frameScore = 0;
+        extraRoll = 0;
+    }
+
+    public Frame(char firstRoll, char secondRoll, char extraRoll) {
+        this.firstRoll = firstRoll;
+        this.secondRoll = secondRoll;
+        this.extraRoll = extraRoll;
     }
 
     public int getFirstRoll() {
@@ -24,7 +32,16 @@ public class Frame {
         return firstRoll == '-' ? 0 : Character.getNumericValue(firstRoll);
     }
     private int getSecondRollScore(){
-        return secondRoll == '-' ? 0 : Character.getNumericValue(secondRoll);
+        switch (secondRoll){
+            case '/':
+                return getSpareScore();
+                break;
+            default:
+
+        }
+    }
+    private int getSpareScore(){
+        return (10 - getFirstRoll()) + extraRoll;
     }
     @Override
     public boolean equals(Object o) {

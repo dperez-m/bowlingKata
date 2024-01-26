@@ -21,7 +21,11 @@ public class Scorecard {
     private void createFrames(){
         int j = 0;
         for (int i = 0; i < 10; i++){
-            frames[i] = new Frame(rolls.charAt(j),rolls.charAt(j + 1));
+            if (rolls.charAt(j + 1) == '/'){
+                frames[i] = new Frame(rolls.charAt(j),rolls.charAt(j + 1), rolls.charAt(j + 2));
+            } else {
+                frames[i] = new Frame(rolls.charAt(j), rolls.charAt(j + 1));
+            }
             j += 2;
         }
     }

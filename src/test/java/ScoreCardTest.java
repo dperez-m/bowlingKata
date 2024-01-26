@@ -42,4 +42,10 @@ public class ScoreCardTest {
         scorecard = new Scorecard("9-9-9-9-9-9-9-9-9-9-");
         assertEquals(90, scorecard.getTotalScore());
     }
+
+    @Test
+    public void getSpareGameTotalScoreTest(){
+        scorecard = new Scorecard("5/5/5/5/5/5/5/5/5/55");
+        assertEquals(150, scorecard.getTotalScore());
+    }
 }
