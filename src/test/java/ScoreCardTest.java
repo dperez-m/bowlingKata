@@ -1,14 +1,11 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ScoreCardTest {
 
     Scorecard scorecard = null;
-
+    @Disabled
     @BeforeEach
     public void initTest(){
         scorecard = new Scorecard("12345123451234512345");
@@ -17,11 +14,14 @@ public class ScoreCardTest {
 
     @Test
     public void createScoreCardTest(){
+        scorecard = new Scorecard("12345123451234512345");
         assertEquals("12345123451234512345", scorecard.getRolls());
     }
 
     @Test
     public void createFramesTest(){
+        scorecard = new Scorecard("12345123451234512345");
+
         Frame[] frames = new Frame[10];
         frames[0] = new Frame ('1', '2');
         frames[1] = new Frame ('3', '4');
@@ -39,6 +39,7 @@ public class ScoreCardTest {
 
     @Test
     public void getSimpleTotalScoreTest(){
+        scorecard = new Scorecard("12345123451234512345");
         assertEquals(60, scorecard.getTotalScore());
     }
 }
