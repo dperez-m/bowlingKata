@@ -7,7 +7,7 @@ public class FrameTest {
 
     @Test
     public void createFrameTest() {
-        Frame frame = new Frame(5, 5);
+        Frame frame = new Frame('5', '5');
         Assertions.assertEquals(5, frame.getFirstRoll());
         Assertions.assertEquals(5, frame.getSecondRoll());
     }

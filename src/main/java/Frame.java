@@ -2,11 +2,11 @@ import java.util.Objects;
 
 public class Frame {
 
-    private int firstRoll;
-    private int secondRoll;
+    private char firstRoll;
+    private char secondRoll;
     private int totalScore;
 
-    public Frame(int firstRoll, int secondRoll){
+    public Frame(char firstRoll, char secondRoll){
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
         this.totalScore =0;
