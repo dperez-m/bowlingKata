@@ -47,5 +47,13 @@ public class ScoreCardTest {
     public void getSpareGameTotalScoreTest(){
         scorecard = new Scorecard("5/5/5/5/5/5/5/5/5/5/5");
         assertEquals(150, scorecard.getTotalScore());
+        scorecard = new Scorecard("9-3/613/815/-/8-7/8/8");
+        assertEquals(131, scorecard.getTotalScore());
+    }
+
+    @Test
+    public void getAllStrikeTotalScoreTest(){
+        scorecard = new Scorecard("XXXXXXXXXXXX");
+        assertEquals(300, scorecard.getTotalScore());
     }
 }

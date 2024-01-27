@@ -23,6 +23,9 @@ public class Scorecard {
         for (int i = 0; i < 10; i++){
             if (rolls.charAt(j + 1) == '/'){
                 frames[i] = new Frame(rolls.charAt(j),rolls.charAt(j + 1), rolls.charAt(j + 2));
+            } else if (rolls.charAt(j) == 'X') {
+                frames[i] = new Frame(rolls.charAt(j), '-', rolls.charAt(j + 1), rolls.charAt(j + 2));
+                j--;
             } else {
                 frames[i] = new Frame(rolls.charAt(j), rolls.charAt(j + 1));
             }

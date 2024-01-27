@@ -4,6 +4,7 @@ public class Frame {
     private char secondRoll;
     private int frameScore;
     private char extraRoll;
+    private char secondExtraRoll;
 
     public Frame(char firstRoll, char secondRoll){
         this.firstRoll = firstRoll;
@@ -18,6 +19,13 @@ public class Frame {
         this.extraRoll = extraRoll;
     }
 
+    public Frame(char firstRoll, char secondRoll, char extraRoll, char secondExtraRoll){
+        this.firstRoll = firstRoll;
+        this.secondRoll = secondRoll;
+        this.extraRoll = extraRoll;
+        this.secondExtraRoll = secondExtraRoll;
+    }
+
     public int getFirstRoll() {
         return getFirstRollScore();
     }
@@ -26,10 +34,15 @@ public class Frame {
         return getSecondRollScore();
     }
     public int getFrameScore(){
+        System.out.println(getFirstRollScore() + getSecondRollScore());
         return getFirstRollScore() + getSecondRollScore();
     }
     private int getFirstRollScore(){
-        return firstRoll == '-' ? 0 : Character.getNumericValue(firstRoll);
+        return switch (firstRoll) {
+            case 'X' -> getStrikeScore();
+            case '-' -> 0;
+            default -> Character.getNumericValue(firstRoll);
+        };
     }
     private int getSecondRollScore(){
         return switch (secondRoll) {
@@ -39,7 +52,28 @@ public class Frame {
         };
     }
     private int getSpareScore(){
-        return (10 - getFirstRoll()) + Character.getNumericValue(extraRoll);
+        int total = 10 - getFirstRoll();
+        switch (extraRoll){
+            case 'X':
+                return total += 10;
+            case '-':
+                return total;
+            default:
+                return total += Character.getNumericValue(extraRoll);
+        }
+    }
+    private int getStrikeScore(){
+        int total = 10;
+        if (extraRoll == 'X'){
+            total += 10;
+        } else total += Character.getNumericValue(extraRoll);
+        if (secondExtraRoll == 'X')
+            total += 10;
+        else if (secondExtraRoll == '/' && extraRoll != 'X') {
+            total += (10 - Character.getNumericValue(extraRoll));
+        } else total += Character.getNumericValue(secondExtraRoll);
+
+        return total;
     }
     @Override
     public boolean equals(Object o) {
