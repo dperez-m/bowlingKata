@@ -32,16 +32,14 @@ public class Frame {
         return firstRoll == '-' ? 0 : Character.getNumericValue(firstRoll);
     }
     private int getSecondRollScore(){
-        switch (secondRoll){
-            case '/':
-                return getSpareScore();
-                break;
-            default:
-
-        }
+        return switch (secondRoll) {
+            case '/' -> getSpareScore();
+            case '-' -> 0;
+            default -> Character.getNumericValue(secondRoll);
+        };
     }
     private int getSpareScore(){
-        return (10 - getFirstRoll()) + extraRoll;
+        return (10 - getFirstRoll()) + Character.getNumericValue(extraRoll);
     }
     @Override
     public boolean equals(Object o) {

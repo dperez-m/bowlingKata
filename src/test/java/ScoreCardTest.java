@@ -45,7 +45,7 @@ public class ScoreCardTest {
 
     @Test
     public void getSpareGameTotalScoreTest(){
-        scorecard = new Scorecard("5/5/5/5/5/5/5/5/5/55");
+        scorecard = new Scorecard("5/5/5/5/5/5/5/5/5/5/5");
         assertEquals(150, scorecard.getTotalScore());
     }
 }
