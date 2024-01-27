@@ -34,7 +34,7 @@ public class Frame {
         return getSecondRollScore();
     }
     public int getFrameScore(){
-        System.out.println(getFirstRollScore() + getSecondRollScore());
+        //System.out.println(getFirstRollScore() + getSecondRollScore());
         return getFirstRollScore() + getSecondRollScore();
     }
     private int getFirstRollScore(){
@@ -71,7 +71,8 @@ public class Frame {
             total += 10;
         else if (secondExtraRoll == '/' && extraRoll != 'X') {
             total += (10 - Character.getNumericValue(extraRoll));
-        } else total += Character.getNumericValue(secondExtraRoll);
+        } else if (secondExtraRoll != '-')
+            total += Character.getNumericValue(secondExtraRoll);
 
         return total;
     }

@@ -41,6 +41,8 @@ public class ScoreCardTest {
     public void getHeartbreakGameTotalScoreTest(){
         scorecard = new Scorecard("9-9-9-9-9-9-9-9-9-9-");
         assertEquals(90, scorecard.getTotalScore());
+        scorecard = new Scorecard("9-3561368153258-7181");
+        assertEquals(82, scorecard.getTotalScore());
     }
 
     @Test
@@ -55,5 +57,23 @@ public class ScoreCardTest {
     public void getAllStrikeTotalScoreTest(){
         scorecard = new Scorecard("XXXXXXXXXXXX");
         assertEquals(300, scorecard.getTotalScore());
+    }
+
+    @Test
+    public void getStrikeCombinationsTotalScoreTest(){
+        scorecard = new Scorecard("X9-9-9-9-9-9-9-9-9-");
+        assertEquals(100, scorecard.getTotalScore());
+        scorecard = new Scorecard("9-9-9-9-9-9-9-9-9-X9-");
+        assertEquals(100, scorecard.getTotalScore());
+        scorecard = new Scorecard("X9-X9-9-9-9-9-9-9-");
+        assertEquals(110, scorecard.getTotalScore());
+        scorecard = new Scorecard("XX9-9-9-9-9-9-9-9-");
+        assertEquals(120, scorecard.getTotalScore());
+        scorecard = new Scorecard("XXX9-9-9-9-9-9-9-");
+        assertEquals(141, scorecard.getTotalScore());
+        scorecard = new Scorecard("9-9-9-9-9-9-9-9-9-XXX");
+        assertEquals(111, scorecard.getTotalScore());
+        scorecard = new Scorecard("X5/X5/XX5/--5/X5/");
+        assertEquals(175, scorecard.getTotalScore());
     }
 }
