@@ -66,7 +66,8 @@ public class Frame {
         int total = 10;
         if (extraRoll == 'X'){
             total += 10;
-        } else total += Character.getNumericValue(extraRoll);
+        } else if(extraRoll != '-')
+            total += Character.getNumericValue(extraRoll);
         if (secondExtraRoll == 'X')
             total += 10;
         else if (secondExtraRoll == '/' && extraRoll != 'X') {
