@@ -2,14 +2,12 @@ public class Frame {
 
     private char firstRoll;
     private char secondRoll;
-    private int frameScore;
     private char extraRoll;
     private char secondExtraRoll;
 
     public Frame(char firstRoll, char secondRoll){
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
-        this.frameScore = 0;
         extraRoll = 0;
     }
 
@@ -34,7 +32,6 @@ public class Frame {
         return getSecondRollScore();
     }
     public int getFrameScore(){
-        //System.out.println(getFirstRollScore() + getSecondRollScore());
         return getFirstRollScore() + getSecondRollScore();
     }
     private int getFirstRollScore(){
