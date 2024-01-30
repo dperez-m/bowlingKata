@@ -1,21 +1,23 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
 
 public class FrameTest {
 
     @Test
-    public void createFrameTest() {
-        Frame frame = new Frame('5', '5');
-        Assertions.assertEquals(5, frame.getFirstRoll());
-        Assertions.assertEquals(5, frame.getSecondRoll());
+    public void normalFrameTest() {
+        NormalFrame frame = new NormalFrame('5', '5');
+        Assertions.assertEquals(10, frame.getFrameScore());
     }
 
     @Test
     public void spareFrameTest(){
-        Frame frame = new Frame('5', '/', '5');
+        SpareFrame frame = new SpareFrame('5', '/', '5');
         Assertions.assertEquals(15, frame.getFrameScore());
+    }
+
+    @Test
+    public void strikeFrameTest(){
+        StrikeFrame frame = new StrikeFrame('X', '-', 'X','5');
+        Assertions.assertEquals(25, frame.getFrameScore());
     }
 }
