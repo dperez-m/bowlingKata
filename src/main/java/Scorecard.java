@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Scorecard {
     private final String rolls;
-    private Frame[] frames = new Frame[10];
+    private final Frame[] frames = new Frame[10];
 
     public Scorecard(String rolls) {
         this.rolls = rolls;

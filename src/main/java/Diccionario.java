@@ -22,11 +22,4 @@ public  class Diccionario {
         return  SYMBOL_MAP.getOrDefault(value, 0);
     }
 
-    public static boolean existsKey(char key){
-        try {
-            return SYMBOL_MAP.containsKey(key);
-        } catch (Exception e) {
-            return false;
-        } 
-    }
 }
