@@ -8,13 +8,15 @@ public class Frame {
     public Frame(char firstRoll, char secondRoll){
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
-        extraRoll = 0;
+        this.extraRoll = '-';
+        this.secondExtraRoll = '-';
     }
 
     public Frame(char firstRoll, char secondRoll, char extraRoll) {
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
         this.extraRoll = extraRoll;
+        this.secondExtraRoll = '-';
     }
 
     public Frame(char firstRoll, char secondRoll, char extraRoll, char secondExtraRoll){
@@ -25,16 +27,23 @@ public class Frame {
     }
 
     public int getFirstRoll() {
-        return getFirstRollScore();
+        return getRollScore(this.firstRoll);
     }
 
     public int getSecondRoll() {
-        return getSecondRollScore();
+        return getRollScore(this.secondRoll);
     }
     public int getFrameScore(){
-        return getFirstRollScore() + getSecondRollScore();
+        int base_score = (this.secondRoll=='/')? getRollScore(this.secondRoll) : getRollScore(this.secondRoll) + getRollScore(this.firstRoll);
+        int extra_score = (this.secondExtraRoll=='/')? getRollScore(this.secondExtraRoll) : getRollScore(this.extraRoll) + getRollScore(this.secondExtraRoll);
+        return base_score + extra_score;
     }
-    private int getFirstRollScore(){
+
+    private int getRollScore(char roll){
+        return Diccionario.charValue(roll);
+    }
+    
+/*     private int getFirstRollScore(){
         return switch (firstRoll) {
             case 'X' -> getStrikeScore();
             case '-' -> 0;
@@ -47,7 +56,7 @@ public class Frame {
             case '-' -> 0;
             default -> Character.getNumericValue(secondRoll);
         };
-    }
+    } */
     private int getSpareScore(){
         int total = 10 - getFirstRoll();
         switch (extraRoll){
