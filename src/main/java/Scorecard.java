@@ -18,17 +18,17 @@ public class Scorecard {
     }
 
     private void createFrames(){
-        int j = 0;
-        for (int i = 0; i < 10; i++){
-            if (rolls.charAt(j + 1) == '/'){
-                frames[i] = new SpareFrame(rolls.charAt(j),rolls.charAt(j + 1), rolls.charAt(j + 2));
-            } else if (rolls.charAt(j) == 'X') {
-                frames[i] = new StrikeFrame(rolls.charAt(j), '-', rolls.charAt(j + 1), rolls.charAt(j + 2));
-                j--;
+        int card_index = 0;
+        for (int frame_index = 0; frame_index < 10; frame_index++){
+            if (rolls.charAt(card_index + 1) == '/'){
+                frames[frame_index] = new SpareFrame(rolls.charAt(card_index),rolls.charAt(card_index + 1), rolls.charAt(card_index + 2));
+            } else if (rolls.charAt(card_index) == 'X') {
+                frames[frame_index] = new StrikeFrame(rolls.charAt(card_index), '-', rolls.charAt(card_index + 1), rolls.charAt(card_index + 2));
+                card_index--;
             } else {
-                frames[i] = new NormalFrame(rolls.charAt(j), rolls.charAt(j + 1));
+                frames[frame_index] = new NormalFrame(rolls.charAt(card_index), rolls.charAt(card_index + 1));
             }
-            j += 2;
+            card_index += 2;
         }
     }
 
