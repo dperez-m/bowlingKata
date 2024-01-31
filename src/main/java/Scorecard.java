@@ -17,22 +17,24 @@ public class Scorecard {
         return frames;
     }
 
-    private void createFrames(){
-        int card_index = 0;
-        for (int frame_index = 0; frame_index < 10; frame_index++){
-            if (rolls.charAt(card_index + 1) == '/'){
-                frames[frame_index] = new SpareFrame(rolls.charAt(card_index),rolls.charAt(card_index + 1), rolls.charAt(card_index + 2));
-            } else if (rolls.charAt(card_index) == 'X') {
-                frames[frame_index] = new StrikeFrame(rolls.charAt(card_index), '-', rolls.charAt(card_index + 1), rolls.charAt(card_index + 2));
-                card_index--;
+    private void createFrames() {
+        int cardIndex = 0;
+        for (int frameIndex = 0; frameIndex < 10; frameIndex++) {
+            if (rolls.charAt(cardIndex + 1) == '/') {
+                frames[frameIndex] = new SpareFrame(rolls.charAt(cardIndex), rolls.charAt(cardIndex + 1),
+                        rolls.charAt(cardIndex + 2));
+            } else if (rolls.charAt(cardIndex) == 'X') {
+                frames[frameIndex] = new StrikeFrame(rolls.charAt(cardIndex), '-', rolls.charAt(cardIndex + 1),
+                        rolls.charAt(cardIndex + 2));
+                cardIndex--;
             } else {
-                frames[frame_index] = new NormalFrame(rolls.charAt(card_index), rolls.charAt(card_index + 1));
+                frames[frameIndex] = new NormalFrame(rolls.charAt(cardIndex), rolls.charAt(cardIndex + 1));
             }
-            card_index += 2;
+            cardIndex += 2;
         }
     }
 
-    public int getTotalScore(){
+    public int getTotalScore() {
         return Arrays.stream(frames).mapToInt(Frame::getFrameScore).sum();
     }
 }
