@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Scorecard {
     private final String rolls;
-    private final Frame[] frames = new Frame[10];
+    private final Frame[] frames = new Frame[10]; // se declara como final porque no va a cambiar
 
     public Scorecard(String rolls) {
         this.rolls = rolls;

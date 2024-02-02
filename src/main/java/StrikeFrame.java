@@ -1,46 +1,14 @@
 public class StrikeFrame implements Frame {
 
-    private char firstRoll;
-    private char secondRoll;
-    private char extraRoll;
-    private char secondExtraRoll;
+    private char firstRoll = '-';
+    private char secondRoll = '-';
+    private char extraRoll = '-';
+    private char secondExtraRoll = '-';
 
     public StrikeFrame(char firstRoll, char secondRoll, char extraRoll, char secondExtraRoll) {
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
         this.extraRoll = extraRoll;
-        this.secondExtraRoll = secondExtraRoll;
-    }
-
-    public char getFirstRoll() {
-        return firstRoll;
-    }
-
-    public void setFirstRoll(char firstRoll) {
-        this.firstRoll = firstRoll;
-    }
-
-    public char getSecondRoll() {
-        return secondRoll;
-    }
-
-    public void setSecondRoll(char secondRoll) {
-        this.secondRoll = secondRoll;
-    }
-
-    public char getExtraRoll() {
-        return extraRoll;
-    }
-
-    public void setExtraRoll(char extraRoll) {
-        this.extraRoll = extraRoll;
-    }
-
-    public char getSecondExtraRoll() {
-        return secondExtraRoll;
-    }
-
-    public void setSecondExtraRoll(char secondExtraRoll) {
         this.secondExtraRoll = secondExtraRoll;
     }
 
