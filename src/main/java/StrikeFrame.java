@@ -14,11 +14,9 @@ public class StrikeFrame implements Frame {
 
     @Override
     public int getFrameScore() {
-        int base_score = (this.secondRoll == '/') ? getRollScore(this.secondRoll)
-                : getRollScore(this.secondRoll) + getRollScore(this.firstRoll);
         int extra_score = (this.secondExtraRoll == '/') ? getRollScore(this.secondExtraRoll)
                 : getRollScore(this.extraRoll) + getRollScore(this.secondExtraRoll);
-        return base_score + extra_score;
+        return getRollScore(this.firstRoll) + extra_score;
     }
 
     private int getRollScore(char roll) {
