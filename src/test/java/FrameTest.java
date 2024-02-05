@@ -10,14 +10,14 @@ public class FrameTest {
     }
 
     @Test
-    public void spareFrameTest(){
+    public void spareFrameTest() {
         SpareFrame frame = new SpareFrame('5', '/', '5');
         Assertions.assertEquals(15, frame.getFrameScore());
     }
 
     @Test
-    public void strikeFrameTest(){
-        StrikeFrame frame = new StrikeFrame('X', '-', 'X','5');
+    public void strikeFrameTest() {
+        StrikeFrame frame = new StrikeFrame('X', '-', 'X', '5');
         Assertions.assertEquals(25, frame.getFrameScore());
     }
 }

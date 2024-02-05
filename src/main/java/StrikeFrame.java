@@ -1,22 +1,21 @@
+
 public class StrikeFrame implements Frame {
 
-    private char firstRoll = '-';
-    private char secondRoll = '-';
-    private char extraRoll = '-';
+    private char strikeRoll = 'X';
+    private char firstExtraRoll = '-';
     private char secondExtraRoll = '-';
 
-    public StrikeFrame(char firstRoll, char secondRoll, char extraRoll, char secondExtraRoll) {
-        this.firstRoll = firstRoll;
-        this.secondRoll = secondRoll;
-        this.extraRoll = extraRoll;
+    public StrikeFrame(char firstRoll, char secondRoll, char firstExtraRoll, char secondExtraRoll) {
+        this.strikeRoll = firstRoll;
+        this.firstExtraRoll = firstExtraRoll;
         this.secondExtraRoll = secondExtraRoll;
     }
 
     @Override
     public int getFrameScore() {
-        int extra_score = (this.secondExtraRoll == '/') ? getRollScore(this.secondExtraRoll)
-                : getRollScore(this.extraRoll) + getRollScore(this.secondExtraRoll);
-        return getRollScore(this.firstRoll) + extra_score;
+        int extraScore = (this.secondExtraRoll == '/') ? getRollScore(this.secondExtraRoll)
+                : getRollScore(this.firstExtraRoll) + getRollScore(this.secondExtraRoll);
+        return getRollScore(this.strikeRoll) + extraScore;
     }
 
     private int getRollScore(char roll) {
@@ -30,7 +29,8 @@ public class StrikeFrame implements Frame {
         if (o == null || getClass() != o.getClass())
             return false;
         StrikeFrame frame = (StrikeFrame) o;
-        return firstRoll == frame.firstRoll && secondRoll == frame.secondRoll;
+        return strikeRoll == frame.strikeRoll && firstExtraRoll == frame.firstExtraRoll
+                && secondExtraRoll == frame.secondExtraRoll;
     }
 
 }

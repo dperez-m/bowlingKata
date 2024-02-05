@@ -1,3 +1,4 @@
+
 public class NormalFrame implements Frame {
 
     private char firstRoll = '-';

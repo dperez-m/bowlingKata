@@ -19,18 +19,17 @@ public class Scorecard {
 
     private void createFrames() {
         int cardIndex = 0;
-        for (int frameIndex = 0; frameIndex < 10; frameIndex++) {
-            if (rolls.charAt(cardIndex + 1) == '/') {
-                frames[frameIndex] = new SpareFrame(rolls.charAt(cardIndex), rolls.charAt(cardIndex + 1),
-                        rolls.charAt(cardIndex + 2));
-            } else if (rolls.charAt(cardIndex) == 'X') {
-                frames[frameIndex] = new StrikeFrame(rolls.charAt(cardIndex), '-', rolls.charAt(cardIndex + 1),
-                        rolls.charAt(cardIndex + 2));
-                cardIndex--;
-            } else {
-                frames[frameIndex] = new NormalFrame(rolls.charAt(cardIndex), rolls.charAt(cardIndex + 1));
-            }
-            cardIndex += 2;
+        char firstRoll;
+        char secondRoll;
+        char thirdRoll;
+
+        for (int frameIndex = 0; frameIndex < frames.length; frameIndex++) {
+            firstRoll = rolls.charAt(cardIndex);
+            secondRoll = rolls.charAt(cardIndex + 1);
+            thirdRoll = rolls.length() == cardIndex + 2 ? '-' : rolls.charAt(cardIndex + 2);
+            Frame newFrame = FrameBuilder.newFrame(firstRoll, secondRoll, thirdRoll);
+            frames[frameIndex] = newFrame;
+            cardIndex += newFrame instanceof StrikeFrame ? 1 : 2; // Si es un strike solo avanzamos el indice 1 posicion
         }
     }
 

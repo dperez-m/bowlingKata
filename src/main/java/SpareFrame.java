@@ -1,7 +1,8 @@
+
 public class SpareFrame implements Frame {
 
     private char firstRoll = '-';
-    private char secondRoll = '-';
+    private char secondRoll = '/';
     private char extraRoll = '-';
 
     public SpareFrame(char firstRoll, char secondRoll, char extraRoll) {
@@ -26,7 +27,7 @@ public class SpareFrame implements Frame {
         if (o == null || getClass() != o.getClass())
             return false;
         SpareFrame frame = (SpareFrame) o;
-        return firstRoll == frame.firstRoll && secondRoll == frame.secondRoll;
+        return firstRoll == frame.firstRoll && secondRoll == frame.secondRoll && extraRoll == frame.extraRoll;
     }
 
 }
