@@ -5,7 +5,7 @@ public class StrikeFrame implements Frame {
     private char firstExtraRoll = '-';
     private char secondExtraRoll = '-';
 
-    public StrikeFrame(char firstRoll, char secondRoll, char firstExtraRoll, char secondExtraRoll) {
+    public StrikeFrame(char firstRoll, char firstExtraRoll, char secondExtraRoll) {
         this.strikeRoll = firstRoll;
         this.firstExtraRoll = firstExtraRoll;
         this.secondExtraRoll = secondExtraRoll;

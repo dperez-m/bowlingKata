@@ -17,7 +17,7 @@ public class FrameTest {
 
     @Test
     public void strikeFrameTest() {
-        StrikeFrame frame = new StrikeFrame('X', '-', 'X', '5');
+        StrikeFrame frame = new StrikeFrame('X', 'X', '5');
         Assertions.assertEquals(25, frame.getFrameScore());
     }
 }

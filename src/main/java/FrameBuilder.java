@@ -6,7 +6,7 @@ public class FrameBuilder {
 
     public static Frame newFrame(char firstRoll, char secondRoll, char thirdRoll) {
         if (firstRoll == STRIKE)
-            return new StrikeFrame(firstRoll, secondRoll, thirdRoll, secondRoll);
+            return new StrikeFrame(firstRoll, secondRoll, thirdRoll);
         if (secondRoll == SPARE)
             return new SpareFrame(firstRoll, secondRoll, thirdRoll);
         return new NormalFrame(firstRoll, secondRoll);
