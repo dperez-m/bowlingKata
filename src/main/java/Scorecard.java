@@ -34,7 +34,7 @@ public class Scorecard {
             nextRolls[0] = this.rolls.charAt(index);
             nextRolls[1] = this.rolls.charAt(index + 1);
             nextRolls[2] = this.rolls.charAt(index + 2);
-        } catch (Exception e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             return nextRolls;
         }
         return nextRolls;
