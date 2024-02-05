@@ -19,18 +19,25 @@ public class Scorecard {
 
     private void createFrames() {
         int cardIndex = 0;
-        char firstRoll;
-        char secondRoll;
-        char thirdRoll;
 
         for (int frameIndex = 0; frameIndex < frames.length; frameIndex++) {
-            firstRoll = rolls.charAt(cardIndex);
-            secondRoll = rolls.charAt(cardIndex + 1);
-            thirdRoll = rolls.length() == cardIndex + 2 ? '-' : rolls.charAt(cardIndex + 2);
-            Frame newFrame = FrameBuilder.newFrame(firstRoll, secondRoll, thirdRoll);
-            frames[frameIndex] = newFrame;
-            cardIndex += newFrame instanceof StrikeFrame ? 1 : 2; // Si es un strike solo avanzamos el indice 1 posicion
+            char[] nextRolls = this.getNextRolls(cardIndex);
+            frames[frameIndex] = FrameBuilder.newFrame(nextRolls[0], nextRolls[1], nextRolls[2]);
+            cardIndex += nextRolls[0] == Frame.STRIKE ? 1 : 2; // Si es un strike solo avanzamos el indice 1
+                                                               // posicion
         }
+    }
+
+    private char[] getNextRolls(int index) {
+        char[] nextRolls = { Frame.ZERO, Frame.ZERO, Frame.ZERO };
+        try {
+            nextRolls[0] = this.rolls.charAt(index);
+            nextRolls[1] = this.rolls.charAt(index + 1);
+            nextRolls[2] = this.rolls.charAt(index + 2);
+        } catch (Exception e) {
+            return nextRolls;
+        }
+        return nextRolls;
     }
 
     public int getTotalScore() {
